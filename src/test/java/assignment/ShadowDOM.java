@@ -29,14 +29,14 @@ public class ShadowDOM {
         System.out.println("Validate downloads page header text");
         WebElement root1 = driver.findElement(By.cssSelector("my-paragraph"));
         WebElement shadowRoot1 = expandRootElement(root1);
-        WebElement root2 = shadowRoot1.findElement(By.cssSelector("span"));
-        WebElement shadowRoot2 = expandRootElement(root2);
-        //    element = driver.findElement(By.cssSelector("span[slot='my-text']"));
+       // WebElement root2 = shadowRoot1.findElement(By.cssSelector("span"));
+      //  WebElement shadowRoot2 = expandRootElement(root2);
+
     }
 
     public WebElement expandRootElement(WebElement element) {
-        WebElement ele = (WebElement) ((JavascriptExecutor)driver)
+        return (WebElement) ((JavascriptExecutor)driver)
                 .executeScript("return arguments[0].shadowRoot", element);
-        return ele;
+
     }
 }
