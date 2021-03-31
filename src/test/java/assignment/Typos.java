@@ -35,12 +35,9 @@ public class Typos {
         int i =0;
         while (i<10){
             List<WebElement> paragraphs = driver.findElements(By.xpath( "//div/p"));
-           // Assert.assertEquals("Sometimes you'll see a typo, other times you won't.", paragraphs.get(1).getText());
             System.out.println(paragraphs.get(1).getText());
             driver.navigate().refresh();
             i++;
-
-            //TODO check it again
         }
     }
 }

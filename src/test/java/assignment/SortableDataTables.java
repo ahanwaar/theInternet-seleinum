@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.List;
+
 public class SortableDataTables {
 
     private WebDriver driver;
@@ -16,6 +18,8 @@ public class SortableDataTables {
     public void setUp() throws Exception {
         System.setProperty("webdriver.chrome.driver", "target/chromedriver.exe");
         driver = new ChromeDriver();
+        driver.get("http://the-internet.herokuapp.com/tables");
+
     }
 
     @After
@@ -24,11 +28,16 @@ public class SortableDataTables {
     }
 
     @Test
-    public void test() throws InterruptedException {
-        driver.get("http://the-internet.herokuapp.com/tables");
-        WebElement element = driver.findElement(By.cssSelector("#table1 thead tr th:nth-of-type(4)"));
-        element.click();
-        WebElement dues = driver.findElement(By.cssSelector("#table1 tbody tr td:nth-of-type(4)"));
+    public void testSort1() {
+        List<WebElement> rows=driver.findElements(By.xpath("//tr"));
+        System.out.println(rows.size());
+    }
 
+    @Test
+    public void testSort2() throws Exception {
+        List<WebElement> rows=driver.findElements(By.className("header"));
+        List<WebElement> columns=driver.findElements(By.className("email"));
+        System.out.println(rows.size());
+        System.out.println(columns.size());
     }
 }
